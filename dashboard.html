@@ -1,19 +1,61 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<section class="section">
-<h2>Admin Dashboard</h2>
-<p>Product prices can be edited inside index.html file.</p>
-<div class="grid">
-<div class="card">Manage Products</div>
-<div class="card">View Orders (via WhatsApp)</div>
-</div>
-<a href="../index.html" class="btn">Back to Website</a>
+<section class="section dashboard-shell">
+  <div class="dashboard-header">
+    <div>
+      <p class="eyebrow">Administration</p>
+      <h2>Admin Dashboard</h2>
+      <p>Sign in below to create a reusable admin order identifier for incoming WhatsApp orders.</p>
+    </div>
+    <span id="adminStatus" class="status-badge">Not signed in</span>
+  </div>
+
+  <div class="dashboard-layout">
+    <div class="card admin-signin-card">
+      <h3 id="adminWelcome">Admin authentication required</h3>
+      <p>Use this sign-in interface to identify who is managing orders on the dashboard.</p>
+
+      <form id="adminSignInForm" class="stacked-form">
+        <label for="adminName">Admin name</label>
+        <input id="adminName" name="adminName" type="text" placeholder="e.g. Grace A." required>
+
+        <label for="adminEmail">Email address</label>
+        <input id="adminEmail" name="adminEmail" type="email" placeholder="admin@graciacakes.com" required>
+
+        <button type="submit">Sign In & Generate ID</button>
+      </form>
+
+      <button id="adminSignOut" class="secondary-btn" type="button" hidden>Sign Out</button>
+    </div>
+
+    <div class="card identifier-card">
+      <p class="eyebrow">Unique order identifier</p>
+      <div id="adminOrderIdBadge" class="identifier-badge">Sign in to generate an order ID</div>
+      <p id="orderIdHint">Each admin sign-in creates one unique identifier that can be reused on new orders.</p>
+    </div>
+  </div>
+
+  <div class="grid admin-grid">
+    <div class="card">
+      <h3>Manage Products</h3>
+      <p>Update featured cakes and catering packages directly on the website.</p>
+    </div>
+    <div class="card">
+      <h3>View Orders</h3>
+      <p>Every checkout now carries the current admin order ID inside the WhatsApp message.</p>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn link-btn">Back to Website</a>
 </section>
+<script src="script.js"></script>
 </body>
 </html>
